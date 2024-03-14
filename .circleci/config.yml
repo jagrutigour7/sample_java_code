@@ -7,10 +7,6 @@ filters: &filters
   tags:
     only: /.*/
 
-workflows:
-  lint-pack:
-    jobs:
-
 jobs:
   threatrix_scan:
     docker:
