@@ -19,7 +19,6 @@ jobs:
     environment:
       MAVEN_OPTS: -Xmx3200m
     steps:
-      - *attach_workspace
       - checkout
       - demo_threatrix/install_threatagent
       - demo_threatrix/scan_code:
