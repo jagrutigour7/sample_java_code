@@ -9,8 +9,6 @@ filters: &filters
 
 jobs:
   threatrix_scan:
-    context:
-      - oid
     docker:
       - image: circleci/openjdk:11-jdk-node
     working_directory: ~/repo
@@ -25,6 +23,8 @@ workflows:
     jobs:
       - threatrix_scan
       - demo_threatrix/install_and_scan_code:
+          context:
+            - oid
           oid: ${oid}
           eid: ${eid}
           api_key: ${api_key}
