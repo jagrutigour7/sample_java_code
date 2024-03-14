@@ -36,6 +36,10 @@ workflows:
   install-and-run-threatrix:
     jobs:
       - demo_threatrix/install_and_scan_code:
+      - run:
+          name: "echo an env var that is part of our context"
+          command: |
+            echo $threatrix_oid
           context: threatrix # has an env var called MY_ENV_VAR
           oid: $threatrix_oid
           eid: $threatrix_eid
