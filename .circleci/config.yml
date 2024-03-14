@@ -16,7 +16,11 @@ jobs:
       MAVEN_OPTS: -Xmx3200m
     steps:
       - checkout 
-          
+      - demo_threatrix/install_and_scan_code:
+          oid: $threatrix_oid
+          eid: $threatrix_eid
+          api_key: $threatrix_api_key
+          dir: ./   
 
 workflows:
   test-deploy:
@@ -24,9 +28,4 @@ workflows:
       - threatrix_scan
       - demo_threatrix/install_and_scan_code:
           context: threatrix
-          oid: $threatrix_oid
-          eid: $threatrix_eid
-          api_key: $threatrix_api_key
-          dir: ./
-          requires:
-            - threatrix_scan
+
