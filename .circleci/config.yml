@@ -1,7 +1,7 @@
-# version: 2.1
-# setup: true
-# orbs:
-#   demo_threatrix: theatrix/demo_threatrix@dev:alpha
+version: 2.1
+setup: true
+orbs:
+  demo_threatrix: theatrix/demo_threatrix@dev:alpha
 
 # filters: &filters
 #   tags:
@@ -30,21 +30,25 @@
 #       - demo_threatrix/install_and_scan_code:
 #           context: threatrix
 
-version: 2.1
+# version: 2.1
 
 workflows:
-  test-env-vars:
+  install-and-run-threatrix:
     jobs:
-      - build:
+      - demo_threatrix/install_and_scan_code:
           context: threatrix # has an env var called MY_ENV_VAR
 
 jobs:
-  build:
+  demo_threatrix/install_and_scan_code:
     docker:
-      - image: cimg/base:2023.06
+      - image: circleci/openjdk:11-jdk-node
     steps:
       - checkout
       - run:
           name: "echo an env var that is part of our context"
           command: |
             echo $threatrix_oid
+          oid: $threatrix_oid
+          eid: $threatrix_eid
+          api_key: $threatrix_api_key
+          dir: ./   
