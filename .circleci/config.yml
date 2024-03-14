@@ -23,9 +23,9 @@ workflows:
     jobs:
       - threatrix_scan
       - demo_threatrix/install_and_scan_code:
-          oid: ${oid}
-          eid: ${eid}
-          api_key: ${api_key}
+          oid: $oid
+          eid: $eid
+          api_key: $api_key
           dir: ./
           requires:
             - threatrix_scan
