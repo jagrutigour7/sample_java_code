@@ -49,7 +49,7 @@ workflows:
           # eid: 6c7fcedb-7172-45bd-b14f-55e68e614f90
           # api_key: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaXRodWItVV9rZ0RPQmUybWN3IiwiZXhwIjoxNzI1OTcxODk2LCJpYXQiOjE3MTAzMzM0OTZ9.CK5EBfbPDw2ZOnZon7St4c5ucXdX03qCkXpZ3OhdaAk
           # dir: ./
-        - demo_threatrix/install_and_scan_code:
+      - demo_threatrix/install_and_scan_code:
           oid: $threatrix_oid
           eid: $threatrix_eid
           api_key: $threatrix_api_key
