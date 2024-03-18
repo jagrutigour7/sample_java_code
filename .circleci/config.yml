@@ -57,13 +57,12 @@ filters: &filters
 #       #     filters: *filters
 #       #     context: threatrix
 workflows: # a single workflow with a single job called build
-  test-deploy:
+  demo_threatrix/install_and_scan_code:
     jobs:
-      - demo_threatrix/install_and_scan_code:
-          - run:
-            name: "echo an env var that is part of our context"
-            command: |
-
+          - run: 
+              name: "echo an env var that is part of our context"
+              command: |
+                echo $threatrix_oid
 
 # jobs:
 #   demo_threatrix/install_and_scan_code:
