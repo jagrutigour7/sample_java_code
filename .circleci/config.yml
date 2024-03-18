@@ -29,14 +29,14 @@ jobs:
           dir: ./
           requires:
             - threatrix_scan  
-          - run:
-              name: "echo an env var that is part of our project"
-              command: |
-                echo $oid # this env var must be set within the project
-                echo $eid
-                echo $api_key
-                echo $env_var
-                echo ${env_var}
+          # - run:
+          #     name: "echo an env var that is part of our project"
+          #     command: |
+          #       echo $oid # this env var must be set within the project
+          #       echo $eid
+          #       echo $api_key
+          #       echo $env_var
+          #       echo ${env_var}
 
 # version: 2.1
 
