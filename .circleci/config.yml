@@ -17,7 +17,6 @@ workflows:
           dir: ./
 
 # jobs:
-
 #   demo_threatrix/install_and_scan_code:
 #     docker:
 #       - image: circleci/openjdk:11-jdk-node
