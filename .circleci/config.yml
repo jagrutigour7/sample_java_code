@@ -23,12 +23,12 @@ jobs:
           api_key: $threatrix_api_key
           dir: ./   
 
-# workflows:
-#   test-deploy:
-#     jobs:
-#       - threatrix_scan
-#       - demo_threatrix/install_and_scan_code:
-#           context: threatrix
+workflows:
+  test-deploy:
+    jobs:
+      - threatrix_scan
+      - demo_threatrix/install_and_scan_code:
+          context: threatrix
 
 # version: 2.1
 
