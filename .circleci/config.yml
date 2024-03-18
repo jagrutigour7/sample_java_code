@@ -17,7 +17,6 @@ jobs:
     steps:
       - checkout 
       - demo_threatrix/install_and_scan_code:
-          context: threatrix
           oid: $threatrix_oid
           eid: $threatrix_eid
           api_key: $threatrix_api_key
@@ -28,7 +27,7 @@ workflows:
     jobs:
       - threatrix_scan
       - demo_threatrix/install_and_scan_code:
-          context: threatrix
+
 
 # version: 2.1
 
