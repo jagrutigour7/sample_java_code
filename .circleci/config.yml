@@ -7,61 +7,17 @@ filters: &filters
   tags:
     only: /.*/
 
-# jobs:
-#   threatrix_scan:
-#     docker:
-#       - image: circleci/openjdk:11-jdk-node
-#     working_directory: ~/repo
-#     environment:
-#       MAVEN_OPTS: -Xmx3200m
-#     steps:
-#       - checkout 
-#       - demo_threatrix/install_and_scan_code:
-#           oid: $threatrix_oid
-#           eid: $threatrix_eid
-#           api_key: $threatrix_api_key
-#           dir: ./   
-
 workflows:
-  test-deploy:
+  install-and-run-threatrix:
     jobs:
-      - threatrix_scan
       - demo_threatrix/install_and_scan_code:
+          oid: $threatrix_oid
+          eid: $threatrix_eid
+          api_key: $threatrix_api_key
+          dir: ./
+          filters: *filters
+          context: threatrix
 
-
-# version: 2.1
-
-# workflows:
-#   install-and-run-threatrix:
-#     jobs:
-#       - demo_threatrix/install_and_scan_code:
-      # - run:
-      #     name: "echo an env var that is part of our context"
-      #     command: |
-#             echo $threatrix_oid
-#           context: threatrix # has an env var called MY_ENV_VAR
-#       #     oid: $threatrix_oid
-#       #     eid: $threatrix_eid
-#       #     api_key: $threatrix_api_key
-#       #     dir: ./ 
-#           # oid: 856cb634-419b-49a9-80aa-a9b5e287eb37
-#           # eid: 6c7fcedb-7172-45bd-b14f-55e68e614f90
-#           # api_key: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaXRodWItVV9rZ0RPQmUybWN3IiwiZXhwIjoxNzI1OTcxODk2LCJpYXQiOjE3MTAzMzM0OTZ9.CK5EBfbPDw2ZOnZon7St4c5ucXdX03qCkXpZ3OhdaAk
-#           # dir: ./
-#       # - demo_threatrix/install_and_scan_code:
-#       #     oid: $threatrix_oid
-#       #     eid: $threatrix_eid
-#       #     api_key: $threatrix_api_key
-#       #     dir: ./
-#       #     filters: *filters
-#       #     context: threatrix
-# workflows: # a single workflow with a single job called build
-#   demo_threatrix/install_and_scan_code:
-#     jobs:
-#           - run: 
-#               name: "echo an env var that is part of our context"
-#               command: |
-#                 echo $threatrix_oid
 
 jobs:
   demo_threatrix/install_and_scan_code:
