@@ -50,3 +50,4 @@ jobs:
             echo $eid
             echo $api_key
             echo $env_var
+            echo ${env_var}
