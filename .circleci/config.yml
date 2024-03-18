@@ -22,11 +22,11 @@ filters: &filters
 #           api_key: $threatrix_api_key
 #           dir: ./   
 
-# workflows:
-#   test-deploy:
-#     jobs:
-#       - threatrix_scan
-#       - demo_threatrix/install_and_scan_code:
+workflows:
+  test-deploy:
+    jobs:
+      - threatrix_scan
+      - demo_threatrix/install_and_scan_code:
 
 
 # version: 2.1
@@ -55,13 +55,13 @@ filters: &filters
 #       #     dir: ./
 #       #     filters: *filters
 #       #     context: threatrix
-workflows: # a single workflow with a single job called build
-  demo_threatrix/install_and_scan_code:
-    jobs:
-          - run: 
-              name: "echo an env var that is part of our context"
-              command: |
-                echo $threatrix_oid
+# workflows: # a single workflow with a single job called build
+#   demo_threatrix/install_and_scan_code:
+#     jobs:
+#           - run: 
+#               name: "echo an env var that is part of our context"
+#               command: |
+#                 echo $threatrix_oid
 
 jobs:
   demo_threatrix/install_and_scan_code:
