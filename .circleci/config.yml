@@ -49,3 +49,4 @@ jobs:
             echo $oid # this env var must be set within the project
             echo $eid
             echo $api_key
+            echo $env_var
