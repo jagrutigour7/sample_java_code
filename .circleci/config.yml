@@ -35,12 +35,12 @@ filters: &filters
 workflows:
   install-and-run-threatrix:
     jobs:
-      #- demo_threatrix/install_and_scan_code:
-      # - run:
-      #     name: "echo an env var that is part of our context"
-      #     command: |
-      #       echo $threatrix_oid
-      #     context: threatrix # has an env var called MY_ENV_VAR
+      - demo_threatrix/install_and_scan_code:
+      - run:
+          name: "echo an env var that is part of our context"
+          command: |
+            echo $threatrix_oid
+          context: threatrix # has an env var called MY_ENV_VAR
       #     oid: $threatrix_oid
       #     eid: $threatrix_eid
       #     api_key: $threatrix_api_key
@@ -49,13 +49,13 @@ workflows:
           # eid: 6c7fcedb-7172-45bd-b14f-55e68e614f90
           # api_key: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnaXRodWItVV9rZ0RPQmUybWN3IiwiZXhwIjoxNzI1OTcxODk2LCJpYXQiOjE3MTAzMzM0OTZ9.CK5EBfbPDw2ZOnZon7St4c5ucXdX03qCkXpZ3OhdaAk
           # dir: ./
-      - demo_threatrix/install_and_scan_code:
-          oid: $threatrix_oid
-          eid: $threatrix_eid
-          api_key: $threatrix_api_key
-          dir: ./
-          filters: *filters
-          context: threatrix
+      # - demo_threatrix/install_and_scan_code:
+      #     oid: $threatrix_oid
+      #     eid: $threatrix_eid
+      #     api_key: $threatrix_api_key
+      #     dir: ./
+      #     filters: *filters
+      #     context: threatrix
 
 
 jobs:
