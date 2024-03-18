@@ -36,9 +36,9 @@ filters: &filters
 #   install-and-run-threatrix:
 #     jobs:
 #       - demo_threatrix/install_and_scan_code:
-#       - run:
-#           name: "echo an env var that is part of our context"
-#           command: |
+      # - run:
+      #     name: "echo an env var that is part of our context"
+      #     command: |
 #             echo $threatrix_oid
 #           context: threatrix # has an env var called MY_ENV_VAR
 #       #     oid: $threatrix_oid
@@ -60,12 +60,10 @@ workflows: # a single workflow with a single job called build
   test-deploy:
     jobs:
       - demo_threatrix/install_and_scan_code:
-          oid: $threatrix_oid
-          eid: $threatrix_eid
-          api_key: $threatrix_api_key
-          dir: ./
-          filters: *filters
-          context: threatrix
+          - run:
+            name: "echo an env var that is part of our context"
+            command: |
+
 
 # jobs:
 #   demo_threatrix/install_and_scan_code:
